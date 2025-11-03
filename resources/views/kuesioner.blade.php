@@ -26,6 +26,20 @@
                     <form action="{{ route('survei.store') }}" method="POST" class="mt-4">
                         @csrf
 
+                        <h2 class="h5 fw-semibold text-dark">Identitas Petani</h2>
+                        <p class="text-muted mb-4">Data ini akan kami gunakan untuk follow-up riset</p>
+
+                        <div class="row g-3">
+                            <div class="col-md-6 mb-4">
+                                <label for="nama" class="form-label fw-medium">Nama Lengkap Anda *</label>
+                                <input type="text" class="form-control form-control-lg" id="nama" name="nama" required>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="email" class="form-label fw-medium">Email Anda *</label>
+                                <input type="email" class="form-control form-control-lg" id="email" name="email" required>
+                            </div>
+                        </div>
+
                         <div class="mb-4">
                         <label for="lokasi_kebun" class="form-label fw-medium">Di mana lokasi kebun Anda? *</label>
                         <select id="lokasi_kebun" name="lokasi_kebun" required class="form-select form-select-lg">

@@ -56,6 +56,15 @@
             </div>
         </div>
 
+        <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <h5 class="card-title fw-semibold text-dark mb-4">Grafik Lokasi Responden</h5>
+                    <canvas id="chartLokasi"></canvas>
+                </div>
+            </div>
+        </div>
+
         <div class="col-lg-12">
             <div class="card h-100">
                 <div class="card-body p-4">
@@ -80,6 +89,7 @@
     const dataLuasKebun = @json($chartLuasKebun);
     const dataMetode = @json($chartMetode);
     const dataKesimpulan = @json($chartKesimpulanData);
+    const dataLokasi = @json($chartLokasi);
 
     // 1. Chart Kerugian (Bar)
     new Chart(document.getElementById('chartKerugian'), {
@@ -154,6 +164,24 @@
         }
     }
     }); 
+
+    // 6. [BARU] Chart Lokasi (Horizontal Bar)
+    new Chart(document.getElementById('chartLokasi'), {
+        type: 'bar',
+        data: {
+            labels: Object.keys(dataLokasi),
+            datasets: [{
+                label: 'Jumlah Responden',
+                data: Object.values(dataLokasi),
+                backgroundColor: '#0d6efd', // Biru
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            indexAxis: 'y', // <-- Bikin jadi horizontal
+            plugins: { legend: { display: false } }
+        }
+    });
 
 </script>
 @endpush

@@ -13,6 +13,8 @@ class QuestionnaireController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
             'lokasi_kebun' => 'required|string|max:255',
             'luas_kebun' => 'required|string|max:255',
             'frekuensi_kerugian' => 'required|string|max:255',

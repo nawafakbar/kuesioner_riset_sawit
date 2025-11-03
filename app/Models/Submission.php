@@ -8,6 +8,8 @@ class Submission extends Model
     use HasFactory;
 
     protected $fillable = [
+        'nama',
+        'email',
         'lokasi_kebun',
         'luas_kebun',
         'frekuensi_kerugian',

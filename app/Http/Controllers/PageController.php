@@ -93,6 +93,12 @@ class PageController extends Controller
             $chartKesimpulanData['datasets'][] = $dataset;
         }
 
+        $chartLokasi = Submission::query()
+            ->select('lokasi_kebun', DB::raw('count(*) as total'))
+            ->groupBy('lokasi_kebun')
+            ->orderBy('total', 'desc') // Urutkan dari yg paling banyak
+            ->pluck('total', 'lokasi_kebun');
+
 
         // === Kirim Semua Data ke View ===
         return view('welcome', [
@@ -102,6 +108,7 @@ class PageController extends Controller
             'chartMetode' => $chartMetode,
             'chartFrekuensi' => $chartFrekuensi,
             'chartKesimpulanData' => $chartKesimpulanData, // Data baru!
+            'chartLokasi' => $chartLokasi,
         ]);
     }
 }
