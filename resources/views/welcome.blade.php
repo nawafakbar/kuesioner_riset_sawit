@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <div class="card h-100">
                 <div class="card-body p-4">
                     <h5 class="card-title fw-semibold text-dark mb-4">Grafik Kesimpulan: Kerugian Berdasarkan Metode Pengamanan</h5>
